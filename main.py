@@ -71,9 +71,6 @@ for col, data in enumerate(m1):
 
 m3=[[m3a,m3b,m3c]]
 
-col=2
-row=0
-
 for row, data in enumerate(m3):
   worksheet.write_row(col,row,data)
 
