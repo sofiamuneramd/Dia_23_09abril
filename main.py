@@ -85,7 +85,8 @@ m3=[[m3a,m3b,m3c]]
 
 
 
-row = 1
+row = 0
+col=1
 
 # Con un ciclo for escribimos en la hoja
 
