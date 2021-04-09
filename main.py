@@ -2,6 +2,7 @@
 
 from openpyxl import load_workbook
 import xlsxwriter
+import numpy as np
 
 # Creamos unas variables que contienen el libro y la hoja que deseamos leer
 
@@ -31,28 +32,17 @@ a3=sheet['A3'].value
 
 # Con estas variables vamos a crear una matriz
 
-#m1=np.array([a1,a2,a3])
+m1 = np.array([[a1,a2,a3]])
+print(m1)
 
-"""
-# Creamos un libro en blanco
-
-copia1=openpyxl.Workbook()
-
-# Accedemos a la hoja en blanco que este archivo recien creado tiene
-
-hoja1=copia1.active
-
-# Le cambiamos el nombre a la hoja
-
-hoja1.title='hoja1'
-
-# Escribiremos en las celdas de esta ultima hoja creada
-"""
+m1a=print(m1[0,0])
+m1b=print(m1[0,1])
+m1c=print(m1[0,2])
 
 workbook = xlsxwriter.Workbook("hoja1.xlsx")
 worksheet = workbook.add_worksheet()
 
-m1 = [[a1,a2,a3]]
+m1=[[m1a,m1b,m1c]]
 
 row = 0
 
@@ -60,5 +50,6 @@ for col, data in enumerate(m1):
   worksheet.write_column(row, col, data)
 
 workbook.close()
+
 
 
