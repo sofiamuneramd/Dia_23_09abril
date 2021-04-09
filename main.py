@@ -83,13 +83,14 @@ for col, data in enumerate(m1):
 
 m3=[[m3a,m3b,m3c]]
 
-col=0
+col=2
 
 for row, data in enumerate(m3):
   worksheet.write_row(col,row,data)
 
 m6=[[m6a,m6b,m6c]]
-row = 0
+
+row = 1
 
 # Con un ciclo for escribimos en la hoja
 
