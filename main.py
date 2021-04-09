@@ -30,25 +30,34 @@ a1=sheet['A1'].value
 a2=sheet['A2'].value
 a3=sheet['A3'].value
 
-# Con estas variables vamos a crear una matriz
+# Con estas variables vamos a crear una matriz con numpy
 
 m1 = np.array([[a1,a2,a3]])
 print(m1)
 
-m1a=print(m1[0,0])
-m1b=print(m1[0,1])
-m1c=print(m1[0,2])
+# Leemos los valores de las entradas de la matriz
+
+m1a=m1[0,0]
+m1b=m1[0,1]
+m1c=m1[0,2]
+
+# Creamos un nuevo libro y hoja
 
 workbook = xlsxwriter.Workbook("hoja1.xlsx")
 worksheet = workbook.add_worksheet()
+
+# Creamos una matriz que será introducida a la hoja. No se hace con numpy ya que estas matrices no son iterables
 
 m1=[[m1a,m1b,m1c]]
 
 row = 0
 
+# Con un ciclo for escribimos en la hoja
+
 for col, data in enumerate(m1):
   worksheet.write_column(row, col, data)
 
+# Cerramos el archivo para que se pueda guardar y crear
 workbook.close()
 
 
