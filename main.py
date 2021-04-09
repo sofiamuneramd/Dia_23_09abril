@@ -32,16 +32,25 @@ a3 = sheet['A3'].value
 b1 = sheet['B1'].value
 b2 = sheet['B2'].value
 b3 = sheet['B3'].value
+c1 = sheet['C1'].value
+c2 = sheet['C2'].value
+c3 = sheet['C3'].value
 
 # Con estas variables vamos a crear una matriz con numpy
 
 m1 = np.array([[a1,a2,a3]])
 m2 = np.array([[b1,b2,b3]])
+m4 = np.ones((1,3))
+print(m4)
+m5 = (np.array([[c1,c2,c3]]))**2
+print(m5)
 
 # Realizamos operaciones entre matrices
 
 m3=m1*m2
 print(m3)
+m6=m5+m4
+
 
 # Leemos los valores de las entradas de la matriz
 
@@ -51,6 +60,9 @@ m1c=m1[0,2]
 m3a=m3[0,0]
 m3b=m3[0,1]
 m3c=m3[0,2]
+m6a=m6[0,0]
+m6b=m6[0,1]
+m6c=m6[0,2]
 
 
 # Creamos un nuevo libro y hoja
@@ -71,12 +83,36 @@ for col, data in enumerate(m1):
 
 m3=[[m3a,m3b,m3c]]
 
+col=0
+
 for row, data in enumerate(m3):
   worksheet.write_row(col,row,data)
+
+m6=[[m6a,m6b,m6c]]
+row = 0
+
+# Con un ciclo for escribimos en la hoja
+
+for col, data in enumerate(m6):
+  worksheet.write_column(row, col, data)
+
 
 # Cerramos el archivo para que se pueda guardar y crear
 
 workbook.close()
+
+'''
+
+
+workbook=load_workbook('Libro2.xlsx',read_only=True)
+
+# Luego abrimos la hoja que vamos a leer
+
+sheet=workbook['Hoja2']
+'''
+
+
+
 
 
 
