@@ -26,20 +26,32 @@ for row in sheet.iter_rows():
 
 # Le asigno a cada celda una variable para poder usar su valor luego
 
-a1=sheet['A1'].value
-a2=sheet['A2'].value
-a3=sheet['A3'].value
+a1 = sheet['A1'].value
+a2 = sheet['A2'].value
+a3 = sheet['A3'].value
+b1 = sheet['B1'].value
+b2 = sheet['B2'].value
+b3 = sheet['B3'].value
 
 # Con estas variables vamos a crear una matriz con numpy
 
 m1 = np.array([[a1,a2,a3]])
-print(m1)
+m2 = np.array([[b1,b2,b3]])
+
+# Realizamos operaciones entre matrices
+
+m3=m1*m2
+print(m3)
 
 # Leemos los valores de las entradas de la matriz
 
 m1a=m1[0,0]
 m1b=m1[0,1]
 m1c=m1[0,2]
+m3a=m3[0,0]
+m3b=m3[0,1]
+m3c=m3[0,2]
+
 
 # Creamos un nuevo libro y hoja
 
@@ -57,7 +69,15 @@ row = 0
 for col, data in enumerate(m1):
   worksheet.write_column(row, col, data)
 
+m3=[[m3a,m3b,m3c]]
+
+col=1
+
+for row, data in enumerate(m3):
+  worksheet.write_row(col,row,data)
+
 # Cerramos el archivo para que se pueda guardar y crear
+
 workbook.close()
 
 
